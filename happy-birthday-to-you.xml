@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<maryxml xmlns="http://mary.dfki.de/2002/MaryXML" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="0.5" xml:lang="en-US">
+	<p>
+		<voice name="cmu-slt-hsmm">
+			<s>
+				<phrase>
+					<t accent="H*" g2p_method="lexicon" ph="' h { - p i" pos="JJ">
+						Happy
+						<syllable accent="H*" ph="h {" stress="1">
+							<ph d="75" end="0.074999996" f0="(100,261.63)" p="h"/>
+							<ph d="135" end="0.20999998" f0="(100,261.63)" p="{"/>
+						</syllable>
+						<syllable ph="p i">
+							<ph d="75" end="0.28499997" p="p"/>
+							<ph d="135" end="0.39499998" f0="(100,261.63)" p="i"/>
+						</syllable>
+					</t>
+					<t accent="H*" g2p_method="lexicon" ph="' b r= T - d EI" pos="NN">
+						birthday
+						<syllable accent="H*" ph="b r= T" stress="1">
+							<ph d="65" end="0.45999998" f0="(100,293.66)" p="b"/>
+							<ph d="270" end="0.575" f0="(100,293.66)" p="r="/>
+							<ph d="90" end="0.66499996" f0="(100,293.66)" p="T"/>
+						</syllable>
+						<syllable ph="d EI">
+							<ph d="45" end="0.71" f0="(100,261.63)" p="d"/>
+							<ph d="270" end="1.005" f0="(100,261.63)" p="EI"/>
+						</syllable>
+					</t>
+					<t g2p_method="lexicon" ph="' t u" pos="TO">
+						to
+						<syllable ph="t u" stress="1">
+							<ph d="50" end="0.97999996" f0="(100,349.23)" p="t"/>
+							<ph d="270" end="1.035" f0="(100,349.23)" p="u"/>
+						</syllable>
+					</t>
+					<t g2p_method="lexicon" ph="' j u" pos="PRP">
+						you
+						<syllable ph="j u" stress="1">
+							<ph d="200" end="1.135" f0="(100,329.63)" p="j"/>
+							<ph d="540" end="1.28" f0="(100,329.63)" p="u"/>
+						</syllable>
+					</t>
+					<t pos=".">
+						!
+					</t>
+					<boundary breakindex="5" duration="400" tone="L-L%"/>
+				</phrase>
+			</s>
+		</voice>
+	</p>
+</maryxml>
