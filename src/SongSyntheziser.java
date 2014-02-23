@@ -77,6 +77,13 @@ public class SongSyntheziser {
         Clip clip = AudioSystem.getClip();
 		clip.open(audio);
 		clip.start();
+        while(clip.getMicrosecondLength() != clip.getMicrosecondPosition())
+        {
+            //Let the clip finish playing before closing
+        }
+        clip.stop();
+        audio.close();
+        System.exit(0);
 //      Optional code for writing to wav file.
 //		MaryAudioUtils.writeWavFile(
 //				MaryAudioUtils.getSamplesAsDoubleArray(audio),
