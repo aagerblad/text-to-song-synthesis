@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<maryxml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="0.5" xml:lang="en-US" xmlns="http://mary.dfki.de/2002/MaryXML">
+  <p>
+    <voice name="cmu-slt-hsmm">
+      <s>
+        <prosody pitch="+5%" range="+20%">
+          <phrase>
+            <t accent="L+H*" g2p_method="lexicon" ph="h @ - ' l @U" pos="UH">Hello<syllable ph="h @">
+                <ph d="75" end="0.074999996" f0="(100,300)" p="h"/>
+                <ph d="40" end="0.114999995" f0="(100,300)" p="@"/>
+              </syllable>
+              <syllable accent="L+H*" ph="l @U" stress="1">
+                <ph d="80" end="0.195" f0="(100,300)" p="l"/>
+                <ph d="115" end="0.31" f0="(100,300)" p="@U"/>
+              </syllable>
+            </t>
+            <t g2p_method="lexicon" ph="' D E r" pos="RB">there<syllable ph="D E r" stress="1">
+                <ph d="50" end="0.36" f0="(100,300)" p="D"/>
+                <ph d="120" end="0.48000002" f0="(100,300)" p="E"/>
+                <ph d="165" end="0.645" f0="(100,300)" p="r"/>
+              </syllable>
+            </t>
+            <t pos=",">,</t>
+            <boundary breakindex="4" duration="400" tone="H-L%"/>
+          </phrase>
+        </prosody>
+        <prosody pitch="-5%" range="-20%">
+          <phrase>
+            <t accent="L+H*" g2p_method="lexicon" ph="' g U d" pos="JJ">good<syllable accent="L+H*" ph="g U d" stress="1">
+                <ph d="70" end="0.715" f0="(100,300)" p="g"/>
+                <ph d="85" end="0.79999995" f0="(100,300)" p="U"/>
+                <ph d="60" end="0.85999995" f0="(100,300)" p="d"/>
+              </syllable>
+            </t>
+            <t accent="!H*" g2p_method="lexicon" ph="' s r=" pos="NN">sir<syllable accent="!H*" ph="s r=" stress="1">
+                <ph d="135" end="0.99499995" f0="(100,300)" p="s"/>
+                <ph d="205" end="1.1999999" f0="(100,300)" p="r="/>
+              </syllable>
+            </t>
+            <t pos=".">.</t>
+            <boundary breakindex="5" duration="400" tone="L-L%"/>
+          </phrase>
+        </prosody>
+      </s>
+    </voice>
+  </p>
+</maryxml>
