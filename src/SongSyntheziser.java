@@ -13,8 +13,10 @@ import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.sound.sampled.LineUnavailableException;
 import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.transform.TransformerException;
-import javax.xml.transform.TransformerFactoryConfigurationError;
+import javax.xml.transform.*;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
+import java.io.File;
 import java.io.IOException;
 
 public class SongSyntheziser {
@@ -40,12 +42,12 @@ public class SongSyntheziser {
 		marytts.setOutputType("ACOUSTPARAMS");
 		Document params = marytts
 				.generateXML("I am a computer. Pleased to meet you.");
-		NodeList nl = params.getElementsByTagName("syllable");
+		NodeList syllables = params.getElementsByTagName("syllable");
 
         // Loop all syllables
-        for (int i = 0; i < nl.getLength(); i++) {
-			Node node = nl.item(i);
-			NodeList phonemes = node.getChildNodes();
+        for (int i = 0; i < syllables.getLength(); i++) {
+			Node syllable = syllables.item(i);
+			NodeList phonemes = syllable.getChildNodes();
 
 			// Loop all phonemes in syllable
 			for (int j = 0; j < phonemes.getLength(); j++) {
@@ -56,18 +58,18 @@ public class SongSyntheziser {
 			}
 		}
 
-		// Optional code for reading from xml file
-		// Transformer transformer = TransformerFactory.newInstance()
-		// .newTransformer();
-		// Result output = new StreamResult(new File("xml/output.xml"));
-		// Source input = new DOMSource(params);
-		// transformer.setOutputProperty(OutputKeys.INDENT, "yes");
-		// transformer.setOutputProperty(
-		// "{http://xml.apache.org/xslt}indent-amount", "2");
-		// transformer.transform(input, output);
+		Transformer transformer = TransformerFactory.newInstance()
+		.newTransformer();
+		Result output = new StreamResult(new File("xml/output.xml"));
+		Source input = new DOMSource(params);
+		transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+		transformer.setOutputProperty(
+		"{http://xml.apache.org/xslt}indent-amount", "2");
+		transformer.transform(input, output);
 
 		marytts.setInputType("ACOUSTPARAMS");
 		marytts.setOutputType("AUDIO");
+        // Optional code for reading from XML file
 		// DocumentBuilderFactory dbfac = DocumentBuilderFactory.newInstance();
 		// DocumentBuilder docBuilder = dbfac.newDocumentBuilder();
 		// Document params2 = docBuilder.parse("xml/output.xml");
