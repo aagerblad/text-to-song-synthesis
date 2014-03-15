@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rythm-patterns>
+    <emotion type="happy">
+        <patterns length="1">
+            <p>4</p>
+        </patterns>
+        <patterns length="2">
+            <p>1 3</p>
+            <p>3 1</p>
+            <p type="end">2 2</p>
+        </patterns>
+        <patterns length="3">
+            <p>1 2 1</p>
+            <p>2 1 1</p>
+            <p>3 0.5 0.5</p>
+            <p type="end">1 1 2</p>
+        </patterns>
+        <patterns length="4">
+            <p>1 1 1 1</p>
+            <p>0.5 0.5 2 1</p>
+            <p>2 1 0.5 0.5</p>
+            <p type="end">0.5 0.5 1 2</p>
+        </patterns>
+        <patterns length="5">
+            <p>1 1 1 0.5 0.5</p>
+            <p>1 1 0.5 0.5 1</p>
+            <p>2 0.5 0.5 0.5 0.5</p>
+            <p type="end">0.5 0.5 0.5 0.5 2</p>
+        </patterns>
+    </emotion>
+</rythm-patterns>

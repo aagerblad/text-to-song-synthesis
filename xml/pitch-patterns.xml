@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pitch-patterns>
+    <emotion type="happy">
+        <patterns length="1">
+            <p>0</p>
+            <p>4</p>
+            <p>5</p>
+            <p>7</p>
+        </patterns>
+        <patterns length="2">
+            <p type="up">0 5</p>
+            <p type="up">0 4</p>
+            <p type="up">0 7</p>
+            <p type="up">4 7</p>
+            <p type="down">7 0</p>
+        </patterns>
+        <patterns length="3">
+            <p type="up">0 4 5</p>
+            <p type="up">4 5 7</p>
+            <p type="up">4 7 5</p>
+            <p type="down">7 4 0</p>
+        </patterns>
+        <patterns length="4">
+            <p type="up">0 4 4 5</p>
+            <p type="up">0 4 5 5</p>
+            <p type="up">4 5 5 7</p>
+            <p type="down">7 7 5 0</p>
+        </patterns>
+        <patterns length="5">
+            <p type="up">0 4 4 5 5</p>
+            <p type="up">0 4 5 7 7</p>
+            <p type="up">4 4 5 5 7</p>
+            <p type="down">7 7 5 4 0</p>
+        </patterns>
+    </emotion>
+</pitch-patterns>
