@@ -30,15 +30,16 @@
 					<t g2p_method="lexicon" ph="' t u" pos="TO">
 						to
 						<syllable ph="t u" stress="1">
-							<ph d="50" end="0.97999996" f0="(100,349.23)" p="t"/>
-							<ph d="270" end="1.035" f0="(100,349.23)" p="u"/>
+                            <ph d="50" end="0.97999996" f0="(1,349.23)(100,349.23)" p="t"/>
+                            <ph d="270" end="1.035" f0="(100,349.23)" p="u"/>
 						</syllable>
 					</t>
 					<t g2p_method="lexicon" ph="' j u" pos="PRP">
 						you
 						<syllable ph="j u" stress="1">
-							<ph d="200" end="1.135" f0="(100,329.63)" p="j"/>
-							<ph d="540" end="1.28" f0="(100,329.63)" p="u"/>
+                            <!--<ph d="200" end="1.135" f0="(100,329.63)" p="j"/>-->
+                            <ph d="200" end="1.135" f0="(1,329.63)" p="j"/>
+                            <ph d="540" end="1.28" f0="(100,329.63)" p="u"/>
 						</syllable>
 					</t>
 					<t pos=".">

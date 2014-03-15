@@ -12,6 +12,8 @@ import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.sound.sampled.LineUnavailableException;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.*;
 import javax.xml.transform.dom.DOMSource;
@@ -32,6 +34,10 @@ public class SongSyntheziser {
 	 * @throws SAXException
 	 * @throws ParserConfigurationException
 	 */
+
+    public static final String INPUT_STRING = "I am a computer. Pleased to meet you.";
+
+
 	public static void main(String[] args) throws MaryConfigurationException,
 			SynthesisException, IOException,
 			TransformerFactoryConfigurationError, TransformerException,
@@ -41,7 +47,7 @@ public class SongSyntheziser {
         MaryInterface marytts = new LocalMaryInterface();
 		marytts.setOutputType("ACOUSTPARAMS");
 		Document params = marytts
-				.generateXML("I am a computer. Pleased to meet you.");
+				.generateXML(INPUT_STRING);
 		NodeList syllables = params.getElementsByTagName("syllable");
 
         // Loop all syllables
@@ -70,10 +76,10 @@ public class SongSyntheziser {
 		marytts.setInputType("ACOUSTPARAMS");
 		marytts.setOutputType("AUDIO");
         // Optional code for reading from XML file
-		// DocumentBuilderFactory dbfac = DocumentBuilderFactory.newInstance();
-		// DocumentBuilder docBuilder = dbfac.newDocumentBuilder();
-		// Document params2 = docBuilder.parse("xml/output.xml");
-		AudioInputStream audio = marytts.generateAudio(params);
+		DocumentBuilderFactory dbfac = DocumentBuilderFactory.newInstance();
+		DocumentBuilder docBuilder = dbfac.newDocumentBuilder();
+		Document params2 = docBuilder.parse("xml/happy-birthday-to-you.xml");
+		AudioInputStream audio = marytts.generateAudio(params2);
 
         System.out.println("done!");
         Clip clip = AudioSystem.getClip();
