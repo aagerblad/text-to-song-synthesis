@@ -3,72 +3,39 @@
   <p>
     <voice name="cmu-slt-hsmm">
       <s>
-        <prosody pitch="+5%" range="+20%">
-          <phrase>
-            <t g2p_method="lexicon" ph="' AI" pos="PRP">I<syllable ph="AI" stress="1">
-                <ph d="105" end="0.105" f0="(100,220)" p="AI"/>
-              </syllable>
-            </t>
-            <t g2p_method="lexicon" ph="' { m" pos="VBP">am<syllable ph="{ m" stress="1">
-                <ph d="45" end="0.14999999" f0="(100,220)" p="{"/>
-                <ph d="65" end="0.21499999" f0="(100,220)" p="m"/>
-              </syllable>
-            </t>
-            <t g2p_method="lexicon" ph="@" pos="DT">a<syllable ph="@">
-                <ph d="60" end="0.27499998" f0="(100,220)" p="@"/>
-              </syllable>
-            </t>
-            <t accent="!H*" g2p_method="lexicon" ph="k @ m - ' p j u - t r=" pos="NN">computer<syllable ph="k @ m">
-                <ph d="90" end="0.36499998" f0="(100,220)" p="k"/>
-                <ph d="45" end="0.40999997" f0="(100,220)" p="@"/>
-                <ph d="60" end="0.46999997" f0="(100,220)" p="m"/>
-              </syllable>
-              <syllable accent="!H*" ph="p j u" stress="1">
-                <ph d="65" end="0.53499997" f0="(100,220)" p="p"/>
-                <ph d="65" end="0.59999996" f0="(100,220)" p="j"/>
-                <ph d="65" end="0.66499996" f0="(100,220)" p="u"/>
-              </syllable>
-              <syllable ph="t r=">
-                <ph d="55" end="0.71999997" f0="(100,220)" p="t"/>
-                <ph d="210" end="0.92999995" f0="(100,220)" p="r="/>
-              </syllable>
-            </t>
-            <t pos=".">.</t>
-            <boundary breakindex="5" duration="400" tone="L-L%"/>
-          </phrase>
-        </prosody>
-      </s>
-      <s>
-        <prosody pitch="-5%" range="-20%">
-          <phrase>
-            <t accent="L+H*" g2p_method="lexicon" ph="' p l i z d" pos="VBN">Pleased<syllable accent="L+H*" ph="p l i z d" stress="1">
-                <ph d="105" end="1.035" f0="(100,220)" p="p"/>
-                <ph d="45" end="1.0799999" f0="(100,220)" p="l"/>
-                <ph d="95" end="1.175" f0="(100,220)" p="i"/>
-                <ph d="85" end="1.26" f0="(100,220)" p="z"/>
-                <ph d="60" end="1.3199999" f0="(100,220)" p="d"/>
-              </syllable>
-            </t>
-            <t g2p_method="lexicon" ph="' t u" pos="TO">to<syllable ph="t u" stress="1">
-                <ph d="75" end="1.395" f0="(100,220)" p="t"/>
-                <ph d="55" end="1.4499999" f0="(100,220)" p="u"/>
-              </syllable>
-            </t>
-            <t accent="!H*" g2p_method="lexicon" ph="' m i t" pos="VB">meet<syllable accent="!H*" ph="m i t" stress="1">
-                <ph d="70" end="1.52" f0="(100,220)" p="m"/>
-                <ph d="130" end="1.65" f0="(100,220)" p="i"/>
-                <ph d="55" end="1.7049999" f0="(100,220)" p="t"/>
-              </syllable>
-            </t>
-            <t g2p_method="lexicon" ph="' j u" pos="PRP">you<syllable ph="j u" stress="1">
-                <ph d="105" end="1.81" f0="(100,220)" p="j"/>
-                <ph d="140" end="1.9499999" f0="(100,220)" p="u"/>
-              </syllable>
-            </t>
-            <t pos=".">.</t>
-            <boundary breakindex="6" duration="400" tone="L-L%"/>
-          </phrase>
-        </prosody>
+        <phrase>
+          <t accent="H*" g2p_method="lexicon" ph="' h { - p i" pos="JJ">Happy<syllable accent="H*" ph="h {" stress="1">
+              <ph d="75" end="0.074999996" f0="(100,261.63)" p="h"/>
+              <ph d="210" end="0.20999998" f0="(100,261.63)" p="{"/>
+            </syllable>
+            <syllable ph="p i">
+              <ph d="75" end="0.28499997" f0="(100,261.63)" p="p"/>
+              <ph d="210" end="0.39499998" f0="(100,261.63)" p="i"/>
+            </syllable>
+          </t>
+          <t accent="H*" g2p_method="lexicon" ph="' b r= T - d EI" pos="NN">birthday<syllable accent="H*" ph="b r= T" stress="1">
+              <ph d="65" end="0.45999998" f0="(100,293.66)" p="b"/>
+              <ph d="425" end="0.575" f0="(100,293.66)" p="r="/>
+              <ph d="90" end="0.66499996" f0="(100,293.66)" p="T"/>
+            </syllable>
+            <syllable ph="d EI">
+              <ph d="55" end="0.71999997" f0="(100,261.63)" p="d"/>
+              <ph d="325" end="0.86999995" f0="(100,261.63)" p="EI"/>
+            </syllable>
+          </t>
+          <t g2p_method="lexicon" ph="' t u" pos="TO">to<syllable ph="t u" stress="1">
+              <ph d="110" end="0.97999996" f0="(100,349.23)" p="t"/>
+              <ph d="380" end="1.035" f0="(100,349.23)" p="u"/>
+            </syllable>
+          </t>
+          <t g2p_method="lexicon" ph="' j u" pos="PRP">you<syllable ph="j u" stress="1">
+              <ph d="100" end="1.135" f0="(100,329.63)" p="j"/>
+              <ph d="640" end="1.28" f0="(100,329.63)" p="u"/>
+            </syllable>
+          </t>
+          <t pos=".">!</t>
+          <boundary breakindex="5" duration="400" tone="L-L%"/>
+        </phrase>
       </s>
     </voice>
   </p>
