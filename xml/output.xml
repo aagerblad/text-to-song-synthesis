@@ -13,24 +13,22 @@
               <ph d="210" end="0.39499998" f0="(100,261.63)" p="i"/>
             </syllable>
           </t>
-          <t accent="H*" g2p_method="lexicon" ph="' b r= T - d EI" pos="NN">birthday<syllable accent="H*" ph="b r= T" stress="1">
-              <ph d="65" end="0.45999998" f0="(100,293.66)" p="b"/>
-              <ph d="425" end="0.575" f0="(100,293.66)" p="r="/>
-              <ph d="90" end="0.66499996" f0="(100,293.66)" p="T"/>
+          <t accent="H*" g2p_method="lexicon" ph="' h { - p i" pos="JJ">happy<syllable accent="H*" ph="h {" stress="1">
+              <ph d="35" end="0.42999998" f0="(100,293.66)" p="h"/>
+              <ph d="425" end="0.56499994" f0="(100,293.66)" p="{"/>
             </syllable>
-            <syllable ph="d EI">
-              <ph d="55" end="0.71999997" f0="(100,261.63)" p="d"/>
-              <ph d="325" end="0.86999995" f0="(100,261.63)" p="EI"/>
-            </syllable>
-          </t>
-          <t g2p_method="lexicon" ph="' t u" pos="TO">to<syllable ph="t u" stress="1">
-              <ph d="110" end="0.97999996" f0="(100,349.23)" p="t"/>
-              <ph d="380" end="1.035" f0="(100,349.23)" p="u"/>
+            <syllable ph="p i">
+              <ph d="75" end="0.6399999" f0="(100,261.63)" p="p"/>
+              <ph d="325" end="0.75499994" f0="(100,261.63)" p="i"/>
             </syllable>
           </t>
-          <t g2p_method="lexicon" ph="' j u" pos="PRP">you<syllable ph="j u" stress="1">
-              <ph d="100" end="1.135" f0="(100,329.63)" p="j"/>
-              <ph d="640" end="1.28" f0="(100,329.63)" p="u"/>
+          <t accent="H*" g2p_method="lexicon" ph="' h { - p i" pos="JJ">happy<syllable accent="H*" ph="h {" stress="1">
+              <ph d="35" end="0.78999996" f0="(100,349.23)" p="h"/>
+              <ph d="380" end="0.92499995" f0="(100,349.23)" p="{"/>
+            </syllable>
+            <syllable ph="p i">
+              <ph d="90" end="1.015" f0="(100,329.63)" p="p"/>
+              <ph d="640" end="1.185" f0="(100,329.63)" p="i"/>
             </syllable>
           </t>
           <t pos=".">!</t>

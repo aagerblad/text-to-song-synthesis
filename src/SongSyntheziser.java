@@ -38,7 +38,7 @@ public class SongSyntheziser {
 	 * @throws ParserConfigurationException
 	 */
 
-    public static final String INPUT_STRING = "I am a computer. Pleased to meet you.";
+    public static final String INPUT_STRING = "Happy birthday to you!";
 
     public static void main(String[] args) throws MaryConfigurationException,
             SynthesisException, IOException,
@@ -49,16 +49,60 @@ public class SongSyntheziser {
         MaryInterface marytts = new LocalMaryInterface();
         marytts.setOutputType("ACOUSTPARAMS");
         Document params = marytts
-                .generateXML("Happy birthday to you!");
+                .generateXML(INPUT_STRING);
         NodeList syllables = params.getElementsByTagName("syllable");
 
-        List<String> vowels = Arrays.asList(new String[]{"{", "i", "r=", "EI", "u"}); //TODO Put this in another class as a field, and add all relevant strings
-        List<SongUnit> songUnits = new ArrayList<SongUnit>(Arrays.asList(new SongUnit[]{new SongUnit(261.63f, 210, 1),
-                new SongUnit(261.63f, 210, 1), new SongUnit(293.66f, 425, 1), new SongUnit(261.63f, 325, 1),
-                new SongUnit(349.23f, 380, 1), new SongUnit(329.63f, 640, 1)}));
+        DocumentBuilderFactory dbfac = DocumentBuilderFactory.newInstance();
+        DocumentBuilder docBuilder = dbfac.newDocumentBuilder();
+        Document pitchPatterns = docBuilder.parse("xml/pitch-patterns.xml");
+        Document rhythmPatterns = docBuilder.parse("xml/rhythm-patterns.xml");
 
+
+        List<String> vowels = Arrays.asList("{", "i", "r=", "EI", "u"); //TODO Put this in another class as a field, and add all relevant strings
+        List<SongUnit> songUnits = SongUnitGenerator.generate(Emotion.HAPPY, INPUT_STRING, params, pitchPatterns, rhythmPatterns);
+//        List<SongUnit> songUnits = new ArrayList<SongUnit>(Arrays.asList(new SongUnit[]{new SongUnit(261.63f, 210, 1),
+//                new SongUnit(261.63f, 210, 1), new SongUnit(293.66f, 425, 1), new SongUnit(261.63f, 325, 1),
+//                new SongUnit(349.23f, 380, 1), new SongUnit(329.63f, 640, 1)}));
         System.out.println(songUnits.size() + " " + syllables.getLength());
+        setPhonemeAttributes(syllables, vowels, songUnits);
 
+        writeOutputXML(params);
+
+        marytts.setInputType("ACOUSTPARAMS");
+        marytts.setOutputType("AUDIO");
+        AudioInputStream audio = marytts.generateAudio(params);
+
+        System.out.println("done!");
+        Clip clip = AudioSystem.getClip();
+        clip.open(audio);
+        clip.start();
+        while (clip.getMicrosecondLength() != clip.getMicrosecondPosition()) {
+            //Let the clip finish playing before closing
+        }
+        clip.stop();
+        audio.close();
+        System.exit(0);
+//        createWav(audio);
+    }
+
+    private static void writeOutputXML(Document params) throws TransformerException {
+        Transformer transformer = TransformerFactory.newInstance()
+                .newTransformer();
+        Result output = new StreamResult(new File("xml/output.xml"));
+        Source input = new DOMSource(params);
+        transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+        transformer.setOutputProperty(
+                "{http://xml.apache.org/xslt}indent-amount", "2");
+        transformer.transform(input, output);
+    }
+
+    private static void createWav(AudioInputStream audio) throws IOException {
+        MaryAudioUtils.writeWavFile(
+                MaryAudioUtils.getSamplesAsDoubleArray(audio),
+                "thisIsMyText.wav", audio.getFormat());
+    }
+
+    private static void setPhonemeAttributes(NodeList syllables, List<String> vowels, List<SongUnit> songUnits) {
         // Loop all syllables
         for (int i = 0; i < syllables.getLength(); i++) {
             Node syllable = syllables.item(i);
@@ -88,36 +132,5 @@ public class SongSyntheziser {
             }
             System.out.println();
         }
-
-        Transformer transformer = TransformerFactory.newInstance()
-                .newTransformer();
-        Result output = new StreamResult(new File("xml/output.xml"));
-        Source input = new DOMSource(params);
-        transformer.setOutputProperty(OutputKeys.INDENT, "yes");
-        transformer.setOutputProperty(
-                "{http://xml.apache.org/xslt}indent-amount", "2");
-        transformer.transform(input, output);
-
-        marytts.setInputType("ACOUSTPARAMS");
-        marytts.setOutputType("AUDIO");
-        // DocumentBuilderFactory dbfac = DocumentBuilderFactory.newInstance();
-        // DocumentBuilder docBuilder = dbfac.newDocumentBuilder();
-        // Document params2 = docBuilder.parse("xml/output.xml");
-        AudioInputStream audio = marytts.generateAudio(params);
-
-        System.out.println("done!");
-        Clip clip = AudioSystem.getClip();
-        clip.open(audio);
-        clip.start();
-        while (clip.getMicrosecondLength() != clip.getMicrosecondPosition()) {
-            //Let the clip finish playing before closing
-        }
-        clip.stop();
-        audio.close();
-        System.exit(0);
-//      Optional code for writing to wav file.
-//		MaryAudioUtils.writeWavFile(
-//				MaryAudioUtils.getSamplesAsDoubleArray(audio),
-//				"thisIsMyText.wav", audio.getFormat());
     }
 }
