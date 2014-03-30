@@ -18,6 +18,7 @@ import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.*;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
+import javax.xml.xpath.XPathExpressionException;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -44,7 +45,7 @@ public class SongSyntheziser {
             SynthesisException, IOException,
             TransformerFactoryConfigurationError, TransformerException,
             LineUnavailableException, SAXException,
-            ParserConfigurationException {
+            ParserConfigurationException, XPathExpressionException {
         System.out.println("Initializing...");
         MaryInterface marytts = new LocalMaryInterface();
         marytts.setOutputType("ACOUSTPARAMS");
@@ -127,7 +128,8 @@ public class SongSyntheziser {
                     phoneme.getAttributes().setNamedItem(d);
                 }
                 Node f0 = phoneme.getOwnerDocument().createAttribute("f0");
-                f0.setNodeValue("(100," + songUnits.get(i).getPitch() + ")");
+                f0.setNodeValue(String.format("(1,%s)(100,%s)", songUnits.get(i).getPitch(),
+                        songUnits.get(i).getPitch()));
                 phoneme.getAttributes().setNamedItem(f0);
             }
             System.out.println();

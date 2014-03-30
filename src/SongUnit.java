@@ -5,9 +5,9 @@ public class SongUnit {
     private final float pitch;
     private final int duration;
 
-    public SongUnit(float pitch, int relativeDuration, int tempo) {
+    public SongUnit(float pitch, float relativeDuration, int tempo) {
         this.pitch = pitch;
-        this.duration = relativeDuration * tempo; //TODO Decide on exactly how this will work, is tempo in bpm or what?
+        this.duration = (int) (relativeDuration * tempo); //TODO Decide on exactly how this will work, is tempo in bpm or what?
     }
 
     public float getPitch() {
