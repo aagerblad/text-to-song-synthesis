@@ -39,7 +39,9 @@ public class SongSyntheziser {
 	 * @throws ParserConfigurationException
 	 */
 
-    public static final String INPUT_STRING = "Happy birthday to you!";
+    public static final String INPUT_STRING = "Happy birthday to you";
+//    public static final String INPUT_STRING = "start start trap trap fuckface";
+    public static final String VOWELS = "A{6QE@3IO29&U}VY=~";
 
     public static void main(String[] args) throws MaryConfigurationException,
             SynthesisException, IOException,
@@ -64,7 +66,7 @@ public class SongSyntheziser {
 //        List<SongUnit> songUnits = new ArrayList<SongUnit>(Arrays.asList(new SongUnit[]{new SongUnit(261.63f, 210, 1),
 //                new SongUnit(261.63f, 210, 1), new SongUnit(293.66f, 425, 1), new SongUnit(261.63f, 325, 1),
 //                new SongUnit(349.23f, 380, 1), new SongUnit(329.63f, 640, 1)}));
-        System.out.println(songUnits.size() + " " + syllables.getLength());
+        System.out.println("Songunits: " + songUnits.size() + "\nInput syllables: " + syllables.getLength());
         setPhonemeAttributes(syllables, vowels, songUnits);
 
         writeOutputXML(params);
@@ -112,7 +114,15 @@ public class SongSyntheziser {
             int duration = songUnits.get(i).getDuration();
             for (int j = 0; j < phonemes.getLength(); j++) {
                 Node phoneme = phonemes.item(j);
-                if (!vowels.contains(phoneme.getAttributes().getNamedItem("p").getNodeValue())){
+                boolean isVowel = false;
+                for (char foo : phoneme.getAttributes().getNamedItem("p").getNodeValue().toCharArray()) {
+                    System.out.println("Phoneme: " + foo);
+                    if (VOWELS.toLowerCase().contains(String.valueOf(foo).toLowerCase())) {
+                        isVowel = true;
+                        break;
+                    }
+                }
+                if (!isVowel) {
                     System.out.println("consonant: " + phoneme.getAttributes().getNamedItem("d").getNodeValue());
                     duration -= Integer.parseInt(phoneme.getAttributes().getNamedItem("d").getNodeValue());
                 }
@@ -121,11 +131,14 @@ public class SongSyntheziser {
             // Loop all phonemes in syllable
             for (int j = 0; j < phonemes.getLength(); j++) {
                 Node phoneme = phonemes.item(j);
-                if (vowels.contains(phoneme.getAttributes().getNamedItem("p").getNodeValue())){
-                    Node d = phoneme.getOwnerDocument().createAttribute("d");
-                    d.setNodeValue(String.valueOf(songUnits.get(i).getDuration()));
-                    System.out.println("vowel: " + String.valueOf(duration));
-                    phoneme.getAttributes().setNamedItem(d);
+                for (char foo : phoneme.getAttributes().getNamedItem("p").getNodeValue().toCharArray()) {
+                    if (VOWELS.toLowerCase().contains(String.valueOf(foo).toLowerCase())) {
+                        Node d = phoneme.getOwnerDocument().createAttribute("d");
+                        d.setNodeValue(String.valueOf(songUnits.get(i).getDuration()));
+                        System.out.println("vowel: " + String.valueOf(duration));
+                        phoneme.getAttributes().setNamedItem(d);
+                        break;
+                    }
                 }
                 Node f0 = phoneme.getOwnerDocument().createAttribute("f0");
                 f0.setNodeValue(String.format("(1,%s)(100,%s)", songUnits.get(i).getPitch(),

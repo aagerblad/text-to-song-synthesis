@@ -4,36 +4,35 @@
     <voice name="cmu-slt-hsmm">
       <s>
         <phrase>
-          <t accent="H*" g2p_method="lexicon" ph="' h { - p i" pos="JJ">Happy<syllable accent="H*" ph="h {" stress="1">
-              <ph d="75" end="0.074999996" f0="(1,220.0)(100,220.0)" p="h"/>
-              <ph d="400" end="0.20999998" f0="(1,220.0)(100,220.0)" p="{"/>
+          <t accent="L+H*" g2p_method="lexicon" ph="' h { - p i" pos="JJ">Happy<syllable accent="L+H*" ph="h {" stress="1">
+              <ph d="205" end="0.205" f0="(1,277.18)(100,277.18)" p="h"/>
+              <ph d="300" end="0.37" f0="(1,277.18)(100,277.18)" p="{"/>
             </syllable>
             <syllable ph="p i">
-              <ph d="75" end="0.28499997" f0="(1,277.18)(100,277.18)" p="p"/>
-              <ph d="400" end="0.39499998" f0="(1,277.18)(100,277.18)" p="i"/>
+              <ph d="125" end="0.495" f0="(1,293.66)(100,293.66)" p="p"/>
+              <ph d="300" end="0.625" f0="(1,293.66)(100,293.66)" p="i"/>
             </syllable>
           </t>
-          <t accent="H*" g2p_method="lexicon" ph="' b r= T - d EI" pos="NN">birthday<syllable accent="H*" ph="b r= T" stress="1">
-              <ph d="65" end="0.45999998" f0="(1,329.63)(100,329.63)" p="b"/>
-              <ph d="400" end="0.575" f0="(1,329.63)(100,329.63)" p="r="/>
-              <ph d="90" end="0.66499996" f0="(1,329.63)(100,329.63)" p="T"/>
+          <t accent="!H*" g2p_method="lexicon" ph="' b r= T - d EI" pos="NN">birthday<syllable accent="!H*" ph="b r= T" stress="1">
+              <ph d="125" end="0.75" f0="(1,293.66)(100,293.66)" p="b"/>
+              <ph d="300" end="0.88" f0="(1,293.66)(100,293.66)" p="r="/>
+              <ph d="130" end="1.01" f0="(1,293.66)(100,293.66)" p="T"/>
             </syllable>
             <syllable ph="d EI">
-              <ph d="55" end="0.71999997" f0="(1,220.0)(100,220.0)" p="d"/>
-              <ph d="400" end="0.86999995" f0="(1,220.0)(100,220.0)" p="EI"/>
+              <ph d="90" end="1.1" f0="(1,329.63)(100,329.63)" p="d"/>
+              <ph d="300" end="1.23" f0="(1,329.63)(100,329.63)" p="EI"/>
             </syllable>
           </t>
           <t g2p_method="lexicon" ph="' t u" pos="TO">to<syllable ph="t u" stress="1">
-              <ph d="110" end="0.97999996" f0="(1,293.66)(100,293.66)" p="t"/>
-              <ph d="800" end="1.035" f0="(1,293.66)(100,293.66)" p="u"/>
+              <ph d="125" end="1.355" f0="(1,329.63)(100,329.63)" p="t"/>
+              <ph d="600" end="1.495" f0="(1,329.63)(100,329.63)" p="u"/>
             </syllable>
           </t>
           <t g2p_method="lexicon" ph="' j u" pos="PRP">you<syllable ph="j u" stress="1">
-              <ph d="100" end="1.135" f0="(1,293.66)(100,293.66)" p="j"/>
-              <ph d="800" end="1.28" f0="(1,293.66)(100,293.66)" p="u"/>
+              <ph d="125" end="1.62" f0="(1,220.0)(100,220.0)" p="j"/>
+              <ph d="600" end="1.8" f0="(1,220.0)(100,220.0)" p="u"/>
             </syllable>
           </t>
-          <t pos=".">!</t>
           <boundary breakindex="5" duration="400" tone="L-L%"/>
         </phrase>
       </s>
