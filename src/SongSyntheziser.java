@@ -39,8 +39,7 @@ public class SongSyntheziser {
 	 * @throws ParserConfigurationException
 	 */
 
-    public static final String INPUT_STRING = "This was a xylophone I making a note here huge success";
-//    public static final String INPUT_STRING = "start start trap trap fuckface";
+    public static final String INPUT_STRING = "I am a computer that really likes to sing dick";
     public static final String VOWELS = "A{6QE@3IO29&U}VY=~";
 
     public static void main(String[] args) throws MaryConfigurationException,
@@ -61,13 +60,9 @@ public class SongSyntheziser {
         Document rhythmPatterns = docBuilder.parse("xml/rhythm-patterns.xml");
 
 
-        List<String> vowels = Arrays.asList("{", "i", "r=", "EI", "u"); //TODO Put this in another class as a field, and add all relevant strings
-        List<SongUnit> songUnits = SongUnitGenerator.generate(Emotion.HAPPY, INPUT_STRING, params, pitchPatterns, rhythmPatterns);
-//        List<SongUnit> songUnits = new ArrayList<SongUnit>(Arrays.asList(new SongUnit[]{new SongUnit(261.63f, 210, 1),
-//                new SongUnit(261.63f, 210, 1), new SongUnit(293.66f, 425, 1), new SongUnit(261.63f, 325, 1),
-//                new SongUnit(349.23f, 380, 1), new SongUnit(329.63f, 640, 1)}));
-        System.out.println("Songunits: " + songUnits.size() + "\nInput syllables: " + syllables.getLength());
-        setPhonemeAttributes(syllables, vowels, songUnits);
+        List<SongUnit> songUnits = SongUnitGenerator.generate(Emotion.HAPPY, params, pitchPatterns, rhythmPatterns);
+        System.out.println("Songunits: " + songUnits.size() + "\nInput syllables: " + syllables.getLength() + "\n");
+        setPhonemeAttributes(syllables, songUnits);
 
         writeOutputXML(params);
 
@@ -105,7 +100,7 @@ public class SongSyntheziser {
                 "thisIsMyText.wav", audio.getFormat());
     }
 
-    private static void setPhonemeAttributes(NodeList syllables, List<String> vowels, List<SongUnit> songUnits) {
+    private static void setPhonemeAttributes(NodeList syllables, List<SongUnit> songUnits) {
         // Loop all syllables
         for (int i = 0; i < syllables.getLength(); i++) {
             Node syllable = syllables.item(i);
@@ -115,9 +110,9 @@ public class SongSyntheziser {
             for (int j = 0; j < phonemes.getLength(); j++) {
                 Node phoneme = phonemes.item(j);
                 boolean isVowel = false;
-                for (char foo : phoneme.getAttributes().getNamedItem("p").getNodeValue().toCharArray()) {
-                    System.out.println("Phoneme: " + foo);
-                    if (VOWELS.toLowerCase().contains(String.valueOf(foo).toLowerCase())) {
+                for (char ch : phoneme.getAttributes().getNamedItem("p").getNodeValue().toCharArray()) {
+                    System.out.println("Phoneme: " + ch);
+                    if (VOWELS.toLowerCase().contains(String.valueOf(ch).toLowerCase())) {
                         isVowel = true;
                         break;
                     }
@@ -135,7 +130,7 @@ public class SongSyntheziser {
                     if (VOWELS.toLowerCase().contains(String.valueOf(foo).toLowerCase())) {
                         Node d = phoneme.getOwnerDocument().createAttribute("d");
                         d.setNodeValue(String.valueOf(songUnits.get(i).getDuration()));
-                        System.out.println("vowel: " + String.valueOf(songUnits.get(i).getDuration()));
+                        System.out.println("vowel: " + duration);
                         phoneme.getAttributes().setNamedItem(d);
                         break;
                     }

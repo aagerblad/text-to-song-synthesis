@@ -18,7 +18,7 @@ public class SongUnitGenerator {
     public static final int[] PATTERN_TIERS = {5, 10, 20, 40}; // Max number of syllables in 2^index patterns
     private static int tempo = 300;
 
-    public static final List<SongUnit> generate(Emotion emotion, String input, Document params, Document pitchPatterns, Document rhythmPatterns) throws XPathExpressionException {
+    public static final List<SongUnit> generate(Emotion emotion, Document params, Document pitchPatterns, Document rhythmPatterns) throws XPathExpressionException {
         List<SongUnit> songUnits = new ArrayList<SongUnit>();
         NodeList words = params.getElementsByTagName("t");
         NodeList allSyllables = params.getElementsByTagName("syllable");
@@ -33,7 +33,7 @@ public class SongUnitGenerator {
         }
 
         float syllablesPerPattern = (float) allSyllables.getLength() / (float) numberOfPatterns;
-        System.out.println("syllablesPerPattern: " + syllablesPerPattern);
+        System.out.println("syllablesPerPattern: " + syllablesPerPattern + "\n");
         List<List<Node>> syllableGroups = new ArrayList<List<Node>>();
         float syllableCounter = 0;
         float oldSyllableCounter;
@@ -76,20 +76,21 @@ public class SongUnitGenerator {
             }
         }
 
+        System.out.println("Number of groups: " + syllableGroups.size() + "\n");
         for (List<Node> group : syllableGroups) {
             for (Node syllable : group) {
                 //TODO Use syllable attributes (formants etc) to determine pitch pattern
             }
 
             boolean end = (syllableGroups.indexOf(group) == syllableGroups.size() - 1);
-            System.out.println(syllableGroups.size());
-            System.out.println(group.size());
+            System.out.println("End: " + String.valueOf(end));
+            System.out.println("Group size " + group.size());
 
             String rhythmPatternForWord = findPatternForWord(rhythmPatterns, emotion, group.size(), end);
             System.out.println("Rhythm pattern: " + rhythmPatternForWord);
 
             String pitchPatternForWord = findPatternForWord(pitchPatterns, emotion, group.size(), end);
-            System.out.println("Pitch patterns: " + pitchPatternForWord);
+            System.out.println("Pitch pattern: " + pitchPatternForWord + "\n");
 
             String[] splitRhythms = rhythmPatternForWord.split(" ");
             String[] splitPitches = pitchPatternForWord.split(" ");
@@ -102,44 +103,6 @@ public class SongUnitGenerator {
 
         }
         return songUnits;
-
-
-//
-//        // Loop every word
-//        for (int i = 0; i < words.getLength(); i++){
-//            Element word = (Element) words.item(i);
-//            System.out.println("Current word: " + word.getTextContent());
-//            NodeList syllables = word.getElementsByTagName("syllable");
-//            if (syllables.getLength() == 0){
-//                break;
-//            }
-//
-//            // Loop every syllable in the word
-//            for (int j = 0; j < syllables.getLength(); j++) {
-//                Node syllable = syllables.item(j);
-//                //TODO Use syllable attributes (formants etc) to determine pitch pattern
-//            }
-//            System.out.println("Word length: " + syllables.getLength());
-//            boolean end = (i == words.getLength() - 1);
-//
-//            String rhythmPatternForWord = findPatternForWord(rhythmPatterns, emotion, syllables.getLength(), end);
-//            System.out.println("Rhythm pattern: " + rhythmPatternForWord);
-//
-//            String pitchPatternForWord = findPatternForWord(pitchPatterns, emotion, syllables.getLength(), end);
-//            System.out.println("Pitch patterns: " + pitchPatternForWord);
-//
-//            String[] splitRhythms = rhythmPatternForWord.split(" ");
-//            String[] splitPitches = pitchPatternForWord.split(" ");
-//            for (int j = 0; j < splitRhythms.length; j++) {
-//                float pitch = Note.getFrequency(KEY, Integer.valueOf(splitPitches[j]));
-//                float duration = Float.valueOf(splitRhythms[j]);
-//                SongUnit unit = new SongUnit(pitch, duration, 200);
-//                songUnits.add(unit);
-//            }
-//            System.out.println();
-//        }
-//
-//        return songUnits;
     }
 
     private static String findPatternForWord(Document patterns, Emotion emotion, int length, boolean end)
@@ -147,8 +110,8 @@ public class SongUnitGenerator {
         String emotionString = emotion.toString().toLowerCase();
         XPathFactory xPathFactory = XPathFactory.newInstance();
         XPath xPath = xPathFactory.newXPath();
-        XPathExpression expr = null;
-        System.out.println(String.valueOf(end));
+        XPathExpression expr;
+
         if (end) {
             expr = xPath.compile(String.format("//emotion[@type='%s']/patterns[@length='%d']/p[@type='end']", emotionString, length));
         } else {
