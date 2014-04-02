@@ -39,7 +39,7 @@ public class SongSyntheziser {
 	 * @throws ParserConfigurationException
 	 */
 
-    public static final String INPUT_STRING = "Happy birthday to you";
+    public static final String INPUT_STRING = "This was a xylophone I making a note here huge success";
 //    public static final String INPUT_STRING = "start start trap trap fuckface";
     public static final String VOWELS = "A{6QE@3IO29&U}VY=~";
 
@@ -135,7 +135,7 @@ public class SongSyntheziser {
                     if (VOWELS.toLowerCase().contains(String.valueOf(foo).toLowerCase())) {
                         Node d = phoneme.getOwnerDocument().createAttribute("d");
                         d.setNodeValue(String.valueOf(songUnits.get(i).getDuration()));
-                        System.out.println("vowel: " + String.valueOf(duration));
+                        System.out.println("vowel: " + String.valueOf(songUnits.get(i).getDuration()));
                         phoneme.getAttributes().setNamedItem(d);
                         break;
                     }

@@ -16,7 +16,7 @@ public class SongUnitGenerator {
 
     public static final Float KEY = Note.A3;
     public static final int[] PATTERN_TIERS = {5, 10, 20, 40}; // Max number of syllables in 2^index patterns
-    private static int tempo = 200;
+    private static int tempo = 300;
 
     public static final List<SongUnit> generate(Emotion emotion, String input, Document params, Document pitchPatterns, Document rhythmPatterns) throws XPathExpressionException {
         List<SongUnit> songUnits = new ArrayList<SongUnit>();
@@ -27,14 +27,16 @@ public class SongUnitGenerator {
         for (int i = 0; i < PATTERN_TIERS.length; i++) {
             if (allSyllables.getLength() < PATTERN_TIERS[i]) {
                 numberOfPatterns = (int) Math.pow(2, i);
+                System.out.println("numberOfPatterns: " + numberOfPatterns);
                 break;
             }
         }
 
-        float syllablesPerPattern = allSyllables.getLength() / numberOfPatterns;
+        float syllablesPerPattern = (float) allSyllables.getLength() / (float) numberOfPatterns;
+        System.out.println("syllablesPerPattern: " + syllablesPerPattern);
         List<List<Node>> syllableGroups = new ArrayList<List<Node>>();
-        int syllableCounter = 0;
-        int oldSyllableCounter = 0;
+        float syllableCounter = 0;
+        float oldSyllableCounter;
         List<Node> syllableGroup = new ArrayList<Node>();
 
         for (int i = 0; i < words.getLength(); i++) {
@@ -50,8 +52,9 @@ public class SongUnitGenerator {
                     syllableGroup.add(syllables.item(j));
                 }
             } else {
-                if (syllablesPerPattern - oldSyllableCounter <= syllableCounter - syllablesPerPattern
-                        || i == words.getLength() - 1) {
+                float foo = syllablesPerPattern - (float) oldSyllableCounter;
+                float bar = (float) syllableCounter - syllablesPerPattern;
+                if ((foo >= bar) || (i == words.getLength() - 1)) {
                     for (int j = 0; j < syllables.getLength(); j++) {
                         syllableGroup.add(syllables.item(j));
                     }
@@ -59,13 +62,13 @@ public class SongUnitGenerator {
                     fuckFace.addAll(syllableGroup);
                     syllableGroups.add(fuckFace);
                     syllableGroup.clear();
-                    syllableCounter = 0;
+                    syllableCounter -= syllablesPerPattern;
                 } else {
                     List<Node> fuckFace = new ArrayList<Node>();
                     fuckFace.addAll(syllableGroup);
                     syllableGroups.add(fuckFace);
                     syllableGroup.clear();
-                    syllableCounter = syllables.getLength();
+                    syllableCounter -= syllablesPerPattern;
                     for (int j = 0; j < syllables.getLength(); j++) {
                         syllableGroup.add(syllables.item(j));
                     }
@@ -79,6 +82,8 @@ public class SongUnitGenerator {
             }
 
             boolean end = (syllableGroups.indexOf(group) == syllableGroups.size() - 1);
+            System.out.println(syllableGroups.size());
+            System.out.println(group.size());
 
             String rhythmPatternForWord = findPatternForWord(rhythmPatterns, emotion, group.size(), end);
             System.out.println("Rhythm pattern: " + rhythmPatternForWord);
