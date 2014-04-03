@@ -1,7 +1,9 @@
+import org.apache.commons.math3.distribution.NormalDistribution;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+
 
 import javax.xml.xpath.*;
 import java.util.ArrayList;
@@ -17,6 +19,7 @@ public class SongUnitGenerator {
     public static final Float KEY = Note.A3;
     public static final int[] PATTERN_TIERS = {5, 10, 20, 40}; // Max number of syllables in 2^index patterns
     private static int tempo = 300;
+    private static FormantPitchMatcher fpm = new FormantPitchMatcher();
 
     public static final List<SongUnit> generate(Emotion emotion, String input, Document params, Document pitchPatterns, Document rhythmPatterns) throws XPathExpressionException {
         List<SongUnit> songUnits = new ArrayList<SongUnit>();
@@ -38,6 +41,8 @@ public class SongUnitGenerator {
         float syllableCounter = 0;
         float oldSyllableCounter;
         List<Node> syllableGroup = new ArrayList<Node>();
+
+
 
         for (int i = 0; i < words.getLength(); i++) {
             Element word = (Element) words.item(i);
