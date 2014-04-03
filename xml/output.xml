@@ -4,82 +4,71 @@
     <voice name="cmu-slt-hsmm">
       <s>
         <phrase>
-          <t g2p_method="lexicon" ph="' D I s" pos="DT">This<syllable ph="D I s" stress="1">
-              <ph d="205" end="0.205" f0="(1,220.0)(100,220.0)" p="D"/>
-              <ph d="400" end="0.29" f0="(1,220.0)(100,220.0)" p="I"/>
-              <ph d="195" end="0.48499998" f0="(1,220.0)(100,220.0)" p="s"/>
-            </syllable>
-          </t>
-          <t accent="L+H*" g2p_method="lexicon" ph="' w A z" pos="VBD">was<syllable accent="L+H*" ph="w A z" stress="1">
-              <ph d="90" end="0.575" f0="(1,261.63)(100,261.63)" p="w"/>
-              <ph d="200" end="0.705" f0="(1,261.63)(100,261.63)" p="A"/>
-              <ph d="125" end="0.83" f0="(1,261.63)(100,261.63)" p="z"/>
-            </syllable>
-          </t>
-          <t g2p_method="lexicon" ph="@" pos="DT">a<syllable ph="@">
-              <ph d="200" end="0.91999996" f0="(1,233.08)(100,233.08)" p="@"/>
-            </syllable>
-          </t>
-          <t accent="L+H*" g2p_method="lexicon" ph="' z AI - l @ - f @U n" pos="NN">xylophone<syllable accent="L+H*" ph="z AI" stress="1">
-              <ph d="130" end="1.05" f0="(1,174.61)(100,174.61)" p="z"/>
-              <ph d="200" end="1.165" f0="(1,174.61)(100,174.61)" p="AI"/>
-            </syllable>
-            <syllable ph="l @">
-              <ph d="125" end="1.29" f0="(1,220.0)(100,220.0)" p="l"/>
-              <ph d="200" end="1.42" f0="(1,220.0)(100,220.0)" p="@"/>
-            </syllable>
-            <syllable ph="f @U n">
-              <ph d="130" end="1.55" f0="(1,233.08)(100,233.08)" p="f"/>
-              <ph d="200" end="1.665" f0="(1,233.08)(100,233.08)" p="@U"/>
-              <ph d="130" end="1.795" f0="(1,233.08)(100,233.08)" p="n"/>
-            </syllable>
-          </t>
           <t g2p_method="lexicon" ph="' AI" pos="PRP">I<syllable ph="AI" stress="1">
-              <ph d="200" end="1.905" f0="(1,233.08)(100,233.08)" p="AI"/>
+              <ph d="400" end="0.205" f0="(1,220.0)(100,220.0)" p="AI"/>
             </syllable>
           </t>
-          <t accent="L+H*" g2p_method="lexicon" ph="' m EI - k I N" pos="VBG">making<syllable accent="L+H*" ph="m EI" stress="1">
-              <ph d="130" end="2.0349998" f0="(1,174.61)(100,174.61)" p="m"/>
-              <ph d="200" end="2.1499999" f0="(1,174.61)(100,174.61)" p="EI"/>
-            </syllable>
-            <syllable ph="k I N">
-              <ph d="125" end="2.2749999" f0="(1,220.0)(100,220.0)" p="k"/>
-              <ph d="200" end="2.3749998" f0="(1,220.0)(100,220.0)" p="I"/>
-              <ph d="130" end="2.5049996" f0="(1,220.0)(100,220.0)" p="N"/>
+          <t g2p_method="lexicon" ph="' { m" pos="VBP">am<syllable ph="{ m" stress="1">
+              <ph d="200" end="0.33499998" f0="(1,277.18)(100,277.18)" p="{"/>
+              <ph d="125" end="0.45999998" f0="(1,277.18)(100,277.18)" p="m"/>
             </syllable>
           </t>
           <t g2p_method="lexicon" ph="@" pos="DT">a<syllable ph="@">
-              <ph d="200" end="2.6149995" f0="(1,233.08)(100,233.08)" p="@"/>
+              <ph d="200" end="0.575" f0="(1,293.66)(100,293.66)" p="@"/>
             </syllable>
           </t>
-          <t accent="L+H*" g2p_method="lexicon" ph="' n @U t" pos="NN">note<syllable accent="L+H*" ph="n @U t" stress="1">
-              <ph d="130" end="2.7449994" f0="(1,233.08)(100,233.08)" p="n"/>
-              <ph d="200" end="2.8549993" f0="(1,233.08)(100,233.08)" p="@U"/>
-              <ph d="130" end="2.9849992" f0="(1,233.08)(100,233.08)" p="t"/>
+          <t accent="L+H*" g2p_method="lexicon" ph="k @ m - ' p j u - t r=" pos="NN">computer<syllable ph="k @ m">
+              <ph d="130" end="0.705" f0="(1,220.0)(100,220.0)" p="k"/>
+              <ph d="200" end="0.80499995" f0="(1,220.0)(100,220.0)" p="@"/>
+              <ph d="130" end="0.93499994" f0="(1,220.0)(100,220.0)" p="m"/>
+            </syllable>
+            <syllable accent="L+H*" ph="p j u" stress="1">
+              <ph d="110" end="1.045" f0="(1,277.18)(100,277.18)" p="p"/>
+              <ph d="130" end="1.175" f0="(1,277.18)(100,277.18)" p="j"/>
+              <ph d="200" end="1.305" f0="(1,277.18)(100,277.18)" p="u"/>
+            </syllable>
+            <syllable ph="t r=">
+              <ph d="125" end="1.43" f0="(1,293.66)(100,293.66)" p="t"/>
+              <ph d="200" end="1.5649999" f0="(1,293.66)(100,293.66)" p="r="/>
             </syllable>
           </t>
-          <t g2p_method="lexicon" ph="' h I r" pos="RB">here<syllable ph="h I r" stress="1">
-              <ph d="140" end="3.1249993" f0="(1,261.63)(100,261.63)" p="h"/>
-              <ph d="200" end="3.2149992" f0="(1,261.63)(100,261.63)" p="I"/>
-              <ph d="125" end="3.3399992" f0="(1,261.63)(100,261.63)" p="r"/>
+          <t g2p_method="lexicon" ph="' D { t" pos="WDT">that<syllable ph="D { t" stress="1">
+              <ph d="130" end="1.6949999" f0="(1,293.66)(100,293.66)" p="D"/>
+              <ph d="200" end="1.81" f0="(1,293.66)(100,293.66)" p="{"/>
+              <ph d="130" end="1.9399999" f0="(1,293.66)(100,293.66)" p="t"/>
             </syllable>
           </t>
-          <t accent="L+H*" g2p_method="lexicon" ph="' h j u dZ" pos="JJ">huge<syllable accent="L+H*" ph="h j u dZ" stress="1">
-              <ph d="130" end="3.4699993" f0="(1,261.63)(100,261.63)" p="h"/>
-              <ph d="120" end="3.5899992" f0="(1,261.63)(100,261.63)" p="j"/>
-              <ph d="200" end="3.7149992" f0="(1,261.63)(100,261.63)" p="u"/>
-              <ph d="130" end="3.8449993" f0="(1,261.63)(100,261.63)" p="dZ"/>
+          <t g2p_method="lexicon" ph="' r I - l i" pos="RB">really<syllable ph="r I" stress="1">
+              <ph d="135" end="2.0749998" f0="(1,220.0)(100,220.0)" p="r"/>
+              <ph d="200" end="2.205" f0="(1,220.0)(100,220.0)" p="I"/>
+            </syllable>
+            <syllable ph="l i">
+              <ph d="125" end="2.33" f0="(1,277.18)(100,277.18)" p="l"/>
+              <ph d="400" end="2.46" f0="(1,277.18)(100,277.18)" p="i"/>
             </syllable>
           </t>
-          <t accent="!H*" g2p_method="lexicon" ph="s @ - ' k s E s" pos="NN">success<syllable ph="s @">
-              <ph d="130" end="3.9749994" f0="(1,233.08)(100,233.08)" p="s"/>
-              <ph d="200" end="4.0649996" f0="(1,233.08)(100,233.08)" p="@"/>
+          <t g2p_method="lexicon" ph="' l AI k s" pos="VBZ">likes<syllable ph="l AI k s" stress="1">
+              <ph d="130" end="2.5900002" f0="(1,293.66)(100,293.66)" p="l"/>
+              <ph d="200" end="2.7200003" f0="(1,293.66)(100,293.66)" p="AI"/>
+              <ph d="125" end="2.8450003" f0="(1,293.66)(100,293.66)" p="k"/>
+              <ph d="105" end="2.9500003" f0="(1,293.66)(100,293.66)" p="s"/>
             </syllable>
-            <syllable accent="!H*" ph="k s E s" stress="1">
-              <ph d="130" end="4.1949997" f0="(1,174.61)(100,174.61)" p="k"/>
-              <ph d="125" end="4.3199997" f0="(1,174.61)(100,174.61)" p="s"/>
-              <ph d="200" end="4.4399996" f0="(1,174.61)(100,174.61)" p="E"/>
-              <ph d="190" end="4.6299996" f0="(1,174.61)(100,174.61)" p="s"/>
+          </t>
+          <t g2p_method="lexicon" ph="' t u" pos="TO">to<syllable ph="t u" stress="1">
+              <ph d="115" end="3.0650003" f0="(1,329.63)(100,329.63)" p="t"/>
+              <ph d="200" end="3.1300004" f0="(1,329.63)(100,329.63)" p="u"/>
+            </syllable>
+          </t>
+          <t accent="L+H*" g2p_method="lexicon" ph="' s I N" pos="VB">sing<syllable accent="L+H*" ph="s I N" stress="1">
+              <ph d="130" end="3.2600002" f0="(1,277.18)(100,277.18)" p="s"/>
+              <ph d="200" end="3.3750002" f0="(1,277.18)(100,277.18)" p="I"/>
+              <ph d="130" end="3.505" f0="(1,277.18)(100,277.18)" p="N"/>
+            </syllable>
+          </t>
+          <t accent="!H*" g2p_method="lexicon" ph="' d I k" pos="NN">dick<syllable accent="!H*" ph="d I k" stress="1">
+              <ph d="115" end="3.6200001" f0="(1,220.0)(100,220.0)" p="d"/>
+              <ph d="400" end="3.75" f0="(1,220.0)(100,220.0)" p="I"/>
+              <ph d="175" end="3.925" f0="(1,220.0)(100,220.0)" p="k"/>
             </syllable>
           </t>
           <boundary breakindex="5" duration="400" tone="L-L%"/>
