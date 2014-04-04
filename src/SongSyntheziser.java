@@ -41,6 +41,13 @@ public class SongSyntheziser {
 
     public static final String INPUT_STRING = "I am a computer that really likes to sing dick";
     public static final String VOWELS = "A{6QE@3IO29&U}VY=~";
+    private final List<String> CLOSED_PHONEMES = new ArrayList<String>(Arrays.asList("u", "@U", "y", "i", "I"));
+    private final List<String> NEAR_CLOSED_PHONEMES = new ArrayList<String>(Arrays.asList("U", "Y"));
+    private final List<String> CLOSED_MID_PHONEMES = new ArrayList<String>(Arrays.asList("o", "2", "e"));
+    private final List<String> MID_PHONEMES = new ArrayList<String>(Arrays.asList("@"));
+    private final List<String> OPEN_MID_PHONEMES = new ArrayList<String>(Arrays.asList("V", "O", "3", "9", "E"));
+    private final List<String> NEAR_OPEN_PHONEMES = new ArrayList<String>(Arrays.asList("6", "{"));
+    private final List<String> OPEN_PHONEMES =new ArrayList<String>(Arrays.asList("Q", "A", "&"));
 
     public static void main(String[] args) throws MaryConfigurationException,
             SynthesisException, IOException,
@@ -82,6 +89,8 @@ public class SongSyntheziser {
         System.exit(0);
 //        createWav(audio);
     }
+
+
 
     private static void writeOutputXML(Document params) throws TransformerException {
         Transformer transformer = TransformerFactory.newInstance()
