@@ -18,7 +18,7 @@ public class SongUnitGenerator {
 
     public static final Float KEY = Note.A3;
     public static final int[] PATTERN_TIERS = {5, 10, 20, 40}; // Max number of syllables in 2^index patterns
-    private static int tempo = 300;
+    private static int tempo = 250;
     private static FormantPitchMatcher fpm = new FormantPitchMatcher();
 
     public static final List<SongUnit> generate(Emotion emotion, Document params, Document pitchPatterns, Document rhythmPatterns) throws XPathExpressionException {

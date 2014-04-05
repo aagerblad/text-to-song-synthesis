@@ -39,9 +39,11 @@ public class SongSyntheziser {
      * @throws ParserConfigurationException
      */
 
-    public static final String INPUT_STRING = "I am a computer that really likes to sing";
+    //public static final String INPUT_STRING = "I am a computer that really likes to sing";
+    public static final String INPUT_STRING = "This was a triumph making a note here huge success";
+//    public static final String INPUT_STRING = "I am I am I am I am I am I am I am";
     public static final String VOWELS = "A{6QE@3IO29&U}VY=~";
-    private static final boolean USE_TEMPO = true;
+    private static final boolean FORCE_NOTE_LENGTH = true;
     private final List<String> CLOSED_PHONEMES = new ArrayList<String>(Arrays.asList("u", "@U", "y", "i", "I"));
     private final List<String> NEAR_CLOSED_PHONEMES = new ArrayList<String>(Arrays.asList("U", "Y"));
     private final List<String> CLOSED_MID_PHONEMES = new ArrayList<String>(Arrays.asList("o", "2", "e"));
@@ -68,7 +70,7 @@ public class SongSyntheziser {
         Document rhythmPatterns = docBuilder.parse("xml/rhythm-patterns.xml");
 
 
-        List<SongUnit> songUnits = SongUnitGenerator.generate(Emotion.HAPPY, params, pitchPatterns, rhythmPatterns);
+        List<SongUnit> songUnits = SongUnitGenerator.generate(Emotion.SAD, params, pitchPatterns, rhythmPatterns);
         System.out.println("Songunits: " + songUnits.size() + "\nInput syllables: " + syllables.getLength() + "\n");
         setPhonemeAttributes(syllables, songUnits);
 
@@ -117,7 +119,7 @@ public class SongSyntheziser {
 
             System.out.println("Syllable: " + syllable.getAttributes().getNamedItem("ph").getTextContent());
             // Loop all phonemes in syllable
-            if (USE_TEMPO) {
+            if (FORCE_NOTE_LENGTH) {
                 setNodesWithTempo(songUnits, i, phonemes);
             }else {
                 setNodes(songUnits, i, phonemes);

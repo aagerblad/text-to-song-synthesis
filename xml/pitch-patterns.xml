@@ -6,31 +6,394 @@
             <p>4</p>
             <p>5</p>
             <p>7</p>
+            <p>9</p>
+            <p>11</p>
+            <p>12</p>
         </patterns>
         <patterns length="2">
-            <p type="up">0 5</p>
+            <p type="up">0 2</p>
             <p type="up">0 4</p>
+            <p type="up">0 5</p>
             <p type="up">0 7</p>
+            <p type="up">0 9</p>
+            <p type="up">0 11</p>
+            <p type="up">0 12</p>
+
+            <p type="up">2 4</p>
+            <p type="up">2 5</p>
+            <p type="up">2 7</p>
+            <p type="up">2 9</p>
+            <p type="up">2 11</p>
+            <p type="up">2 12</p>
+
+            <p type="up">4 5</p>
             <p type="up">4 7</p>
+            <p type="up">4 9</p>
+            <p type="up">4 11</p>
+            <p type="up">4 12</p>
+            <p type="up">5 7</p>
+            <p type="up">5 9</p>
+            <p type="up">5 11</p>
+            <p type="up">5 12</p>
+
+            <p type="up">7 9</p>
+            <p type="up">7 11</p>
+            <p type="up">7 12</p>
+
+            <p type="up">9 11</p>
+            <p type="up">9 12</p>
+
+            <p type="up">11 12</p>
+
+
+            <p type="end">2 0</p>
+            <p type="end">4 0</p>
+            <p type="end">5 0</p>
             <p type="end">7 0</p>
+            <p type="end">9 0</p>
+            <p type="end">11 0</p>
+            <p type="end">12 0</p>
+
+            <p type="down">4 2</p>
+            <p type="down">5 2</p>
+            <p type="down">7 2</p>
+            <p type="down">9 2</p>
+            <p type="down">11 2</p>
+            <p type="down">12 2</p>
+
+            <p type="down">5 4</p>
+            <p type="down">7 4</p>
+            <p type="down">9 4</p>
+            <p type="down">11 4</p>
+            <p type="down">12 4</p>
+
+            <p type="down">7 5</p>
+            <p type="down">9 5</p>
+            <p type="down">11 5</p>
+            <p type="down">12 5</p>
+
+            <p type="down">9 7</p>
+            <p type="down">11 7</p>
+            <p type="down">12 7</p>
+
+            <p type="down">11 9</p>
+            <p type="down">12 9</p>
+
+            <p type="down">12 11</p>
+
         </patterns>
         <patterns length="3">
+            <p type="up">0 2 4</p>
+            <p type="up">0 2 5</p>
             <p type="up">0 4 5</p>
+            <p type="up">0 4 7</p>
+            <p type="up">0 5 7</p>
+            <p type="up">0 5 9</p>
+            <p type="up">0 7 12</p>
+
+            <p type="up">2 4 5</p>
+            <p type="up">2 4 7</p>
+            <p type="up">2 5 7</p>
+            <p type="up">2 5 9</p>
+            <p type="up">2 7 12</p>
+
             <p type="up">4 5 7</p>
-            <p type="up">4 7 5</p>
+            <p type="up">4 5 9</p>
+            <p type="up">4 7 12</p>
+            <p type="up">4 9 12</p>
+
+            <p type="up">5 7 12</p>
+            <p type="up">5 9 12</p>
+
+            <p type="up">7 9 12</p>
+
+            <p type="end">4 2 0</p>
+            <p type="end">5 2 0</p>
+            <p type="end">5 4 0</p>
             <p type="end">7 4 0</p>
+            <p type="end">7 5 0</p>
+            <p type="end">9 5 0</p>
+            <p type="end">12 7 0</p>
+
+            <p type="down">5 4 2</p>
+            <p type="down">7 4 2</p>
+            <p type="down">7 5 2</p>
+            <p type="down">9 5 2</p>
+            <p type="down">12 7 2</p>
+
+            <p type="down">7 5 4</p>
+            <p type="down">9 5 4</p>
+            <p type="down">12 7 4</p>
+            <p type="down">12 9 4</p>
+
+            <p type="down">12 7 5</p>
+            <p type="down">12 9 5</p>
+
+            <p type="down">12 9 7</p>
         </patterns>
         <patterns length="4">
-            <p type="up">0 4 4 5</p>
-            <p type="up">0 4 5 5</p>
-            <p type="up">4 5 5 7</p>
-            <p type="end">7 7 5 0</p>
+            <p type="up">0 2 4 5</p>
+            <p type="up">0 2 4 7</p>
+            <p type="up">0 2 4 12</p>
+
+            <p type="up">0 4 5 7</p>
+            <p type="up">0 4 5 12</p>
+
+            <p type="up">0 4 7 9</p>
+            <p type="up">0 4 7 12</p>
+
+            <p type="up">0 5 7 9</p>
+            <p type="up">0 5 7 12</p>
+
+            <p type="up">0 7 9 12</p>
+
+            <p type="up">2 4 5 7</p>
+            <p type="up">2 4 5 12</p>
+
+            <p type="up">2 4 7 9</p>
+            <p type="up">2 4 7 12</p>
+
+            <p type="up">2 5 7 9</p>
+            <p type="up">2 5 7 12</p>
+
+            <p type="up">2 7 9 12</p>
+
+            <p type="up">4 5 7 9</p>
+            <p type="up">4 5 7 12</p>
+            <p type="up">4 7 9 12</p>
+
+            <p type="up">5 7 9 12</p>
+
+
+            <p type="end">5 4 2 0</p>
+            <p type="end">7 4 2 0</p>
+            <p type="end">12 4 2 0</p>
+            <p type="end">7 5 4 0</p>
+            <p type="end">12 5 4 0</p>
+            <p type="end">9 7 4 0</p>
+            <p type="end">12 7 4 0</p>
+            <p type="end">9 7 5 0</p>
+            <p type="end">12 7 5 0</p>
+            <p type="end">12 9 7 0</p>
+
+            <p type="down">7 5 4 2</p>
+            <p type="down">12 5 4 2</p>
+            <p type="down">9 7 4 2</p>
+            <p type="down">12 7 4 2</p>
+            <p type="down">9 7 5 2</p>
+            <p type="down">12 7 5 2</p>
+            <p type="down">12 9 7 2</p>
+
+            <p type="down">9 7 5 4</p>
+            <p type="down">12 7 5 4</p>
+            <p type="down">12 9 7 4</p>
+
+            <p type="down">12 9 7 5</p>
         </patterns>
         <patterns length="5">
+            <p type="up">0 2 4 5 7</p>
             <p type="up">0 4 4 5 5</p>
             <p type="up">0 4 5 7 7</p>
             <p type="up">4 4 5 5 7</p>
             <p type="end">7 7 5 4 0</p>
+        </patterns>
+    </emotion>
+    <emotion type="sad">
+        <patterns length="1">
+            <p type="end">0</p>
+            <p>4</p>
+            <p>5</p>
+            <p>7</p>
+            <p>8</p>
+            <p>10</p>
+            <p>12</p>
+        </patterns>
+        <patterns length="2">
+            <p type="up">0 2</p>
+            <p type="up">0 3</p>
+            <p type="up">0 5</p>
+            <p type="up">0 7</p>
+            <p type="up">0 8</p>
+            <p type="up">0 10</p>
+            <p type="up">0 12</p>
+
+            <p type="up">2 3</p>
+            <p type="up">2 5</p>
+            <p type="up">2 7</p>
+            <p type="up">2 8</p>
+            <p type="up">2 10</p>
+            <p type="up">2 12</p>
+
+            <p type="up">3 5</p>
+            <p type="up">3 7</p>
+            <p type="up">3 8</p>
+            <p type="up">3 10</p>
+            <p type="up">3 12</p>
+            <p type="up">5 7</p>
+            <p type="up">5 8</p>
+            <p type="up">5 10</p>
+            <p type="up">5 12</p>
+
+            <p type="up">7 8</p>
+            <p type="up">7 10</p>
+            <p type="up">7 12</p>
+
+            <p type="up">8 10</p>
+            <p type="up">8 12</p>
+
+            <p type="up">10 12</p>
+
+
+            <p type="end">2 0</p>
+            <p type="end">3 0</p>
+            <p type="end">5 0</p>
+            <p type="end">7 0</p>
+            <p type="end">8 0</p>
+            <p type="end">10 0</p>
+            <p type="end">12 0</p>
+
+            <p type="down">3 2</p>
+            <p type="down">5 2</p>
+            <p type="down">7 2</p>
+            <p type="down">8 2</p>
+            <p type="down">10 2</p>
+            <p type="down">12 2</p>
+
+            <p type="down">5 3</p>
+            <p type="down">7 3</p>
+            <p type="down">8 3</p>
+            <p type="down">10 3</p>
+            <p type="down">12 3</p>
+
+            <p type="down">7 5</p>
+            <p type="down">8 5</p>
+            <p type="down">10 5</p>
+            <p type="down">12 5</p>
+
+            <p type="down">8 7</p>
+            <p type="down">10 7</p>
+            <p type="down">12 7</p>
+
+            <p type="down">10 8</p>
+            <p type="down">12 8</p>
+
+            <p type="down">12 10</p>
+
+        </patterns>
+        <patterns length="3">
+            <p type="up">0 2 3</p>
+            <p type="up">0 2 5</p>
+            <p type="up">0 3 5</p>
+            <p type="up">0 3 7</p>
+            <p type="up">0 5 7</p>
+            <p type="up">0 5 8</p>
+            <p type="up">0 7 12</p>
+
+            <p type="up">2 3 5</p>
+            <p type="up">2 3 7</p>
+            <p type="up">2 5 7</p>
+            <p type="up">2 5 8</p>
+            <p type="up">2 7 12</p>
+
+            <p type="up">3 5 7</p>
+            <p type="up">3 5 8</p>
+            <p type="up">3 7 12</p>
+            <p type="up">3 8 12</p>
+
+            <p type="up">5 7 12</p>
+            <p type="up">5 8 12</p>
+
+            <p type="up">7 8 12</p>
+
+            <p type="end">3 2 0</p>
+            <p type="end">5 2 0</p>
+            <p type="end">5 3 0</p>
+            <p type="end">7 3 0</p>
+            <p type="end">7 5 0</p>
+            <p type="end">8 5 0</p>
+            <p type="end">12 7 0</p>
+
+            <p type="down">5 3 2</p>
+            <p type="down">7 3 2</p>
+            <p type="down">7 5 2</p>
+            <p type="down">8 5 2</p>
+            <p type="down">12 7 2</p>
+
+            <p type="down">7 5 3</p>
+            <p type="down">8 5 3</p>
+            <p type="down">12 7 3</p>
+            <p type="down">12 8 3</p>
+
+            <p type="down">12 7 5</p>
+            <p type="down">12 8 5</p>
+
+            <p type="down">12 8 7</p>
+        </patterns>
+        <patterns length="4">
+            <p type="up">0 2 3 5</p>
+            <p type="up">0 2 3 7</p>
+            <p type="up">0 2 3 12</p>
+
+            <p type="up">0 3 5 7</p>
+            <p type="up">0 3 5 12</p>
+
+            <p type="up">0 3 7 8</p>
+            <p type="up">0 3 7 12</p>
+
+            <p type="up">0 5 7 8</p>
+            <p type="up">0 5 7 12</p>
+
+            <p type="up">0 7 8 12</p>
+
+            <p type="up">2 3 5 7</p>
+            <p type="up">2 3 5 12</p>
+
+            <p type="up">2 3 7 8</p>
+            <p type="up">2 3 7 12</p>
+
+            <p type="up">2 5 7 8</p>
+            <p type="up">2 5 7 12</p>
+
+            <p type="up">2 7 8 12</p>
+
+            <p type="up">3 5 7 8</p>
+            <p type="up">3 5 7 12</p>
+            <p type="up">3 7 8 12</p>
+
+            <p type="up">5 7 8 12</p>
+
+
+            <p type="end">5 3 2 0</p>
+            <p type="end">7 3 2 0</p>
+            <p type="end">12 3 2 0</p>
+            <p type="end">7 5 3 0</p>
+            <p type="end">12 5 3 0</p>
+            <p type="end">8 7 3 0</p>
+            <p type="end">12 7 3 0</p>
+            <p type="end">8 7 5 0</p>
+            <p type="end">12 7 5 0</p>
+            <p type="end">12 8 7 0</p>
+
+            <p type="down">7 5 3 2</p>
+            <p type="down">12 5 3 2</p>
+            <p type="down">8 7 3 2</p>
+            <p type="down">12 7 3 2</p>
+            <p type="down">8 7 5 2</p>
+            <p type="down">12 7 5 2</p>
+            <p type="down">12 8 7 2</p>
+
+            <p type="down">8 7 5 3</p>
+            <p type="down">12 7 5 3</p>
+            <p type="down">12 8 7 3</p>
+
+            <p type="down">12 8 7 5</p>
+        </patterns>
+        <patterns length="5">
+            <p type="up">0 2 3 5 7</p>
+            <p type="up">0 3 3 5 5</p>
+            <p type="up">0 3 5 7 7</p>
+            <p type="up">3 3 5 5 7</p>
+            <p type="end">7 7 5 3 0</p>
         </patterns>
     </emotion>
 </pitch-patterns>

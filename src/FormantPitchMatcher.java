@@ -1,5 +1,6 @@
 import org.apache.commons.math3.distribution.NormalDistribution;
 
+
 import java.util.*;
 
 /**
@@ -8,13 +9,13 @@ import java.util.*;
 public class FormantPitchMatcher {
 
     Map<String, NormalDistribution> map = new HashMap<String, NormalDistribution>();
-    private final double CLOSED_FORMANT_X_VALUE = -2;
-    private final double NEAR_CLOSED_FORMANT_X_VALUE = 0;
+    private final double CLOSED_FORMANT_X_VALUE = 0;
+    private final double NEAR_CLOSED_FORMANT_X_VALUE = 4;
     private final double CLOSED_MID_FORMANT_X_VALUE = 4;
-    private final double MID_FORMANT_X_VALUE = 4;
-    private final double OPEN_MID_FORMANT_X_VALUE = 7;
-    private final double NEAR_OPEN_FORMANT_X_VALUE = 7;
-    private final double OPEN_FORMANT_X_VALUE = 14;
+    private final double MID_FORMANT_X_VALUE = 7;
+    private final double OPEN_MID_FORMANT_X_VALUE = 9;
+    private final double NEAR_OPEN_FORMANT_X_VALUE = 9;
+    private final double OPEN_FORMANT_X_VALUE = 9;
     private final double VARIANCE = 1;
 
     private final NormalDistribution CLOSED_FORMANT_DIST = new NormalDistribution(CLOSED_FORMANT_X_VALUE, VARIANCE);
