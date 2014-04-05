@@ -1,4 +1,3 @@
-import org.apache.commons.math3.distribution.NormalDistribution;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -84,10 +83,6 @@ public class SongUnitGenerator {
 
         System.out.println("Number of groups: " + syllableGroups.size() + "\n");
         for (List<Node> group : syllableGroups) {
-            for (Node syllable : group) {
-                //TODO Use syllable attributes (formants etc) to determine pitch pattern
-            }
-
             boolean end = (syllableGroups.indexOf(group) == syllableGroups.size() - 1);
             System.out.println("End: " + String.valueOf(end));
             System.out.println("Group size " + group.size());

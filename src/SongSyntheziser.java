@@ -27,27 +27,28 @@ import java.util.List;
 
 public class SongSyntheziser {
 
-	/**
-	 * @param args
-	 * @throws MaryConfigurationException
-	 * @throws SynthesisException
-	 * @throws IOException
-	 * @throws TransformerFactoryConfigurationError
-	 * @throws TransformerException
-	 * @throws LineUnavailableException
-	 * @throws SAXException
-	 * @throws ParserConfigurationException
-	 */
+    /**
+     * @param args
+     * @throws MaryConfigurationException
+     * @throws SynthesisException
+     * @throws IOException
+     * @throws TransformerFactoryConfigurationError
+     * @throws TransformerException
+     * @throws LineUnavailableException
+     * @throws SAXException
+     * @throws ParserConfigurationException
+     */
 
-    public static final String INPUT_STRING = "I am a computer that really likes to sing dick";
+    public static final String INPUT_STRING = "I am a computer that really likes to sing";
     public static final String VOWELS = "A{6QE@3IO29&U}VY=~";
+    private static final boolean USE_TEMPO = true;
     private final List<String> CLOSED_PHONEMES = new ArrayList<String>(Arrays.asList("u", "@U", "y", "i", "I"));
     private final List<String> NEAR_CLOSED_PHONEMES = new ArrayList<String>(Arrays.asList("U", "Y"));
     private final List<String> CLOSED_MID_PHONEMES = new ArrayList<String>(Arrays.asList("o", "2", "e"));
     private final List<String> MID_PHONEMES = new ArrayList<String>(Arrays.asList("@"));
     private final List<String> OPEN_MID_PHONEMES = new ArrayList<String>(Arrays.asList("V", "O", "3", "9", "E"));
     private final List<String> NEAR_OPEN_PHONEMES = new ArrayList<String>(Arrays.asList("6", "{"));
-    private final List<String> OPEN_PHONEMES =new ArrayList<String>(Arrays.asList("Q", "A", "&"));
+    private final List<String> OPEN_PHONEMES = new ArrayList<String>(Arrays.asList("Q", "A", "&"));
 
     public static void main(String[] args) throws MaryConfigurationException,
             SynthesisException, IOException,
@@ -91,7 +92,6 @@ public class SongSyntheziser {
     }
 
 
-
     private static void writeOutputXML(Document params) throws TransformerException {
         Transformer transformer = TransformerFactory.newInstance()
                 .newTransformer();
@@ -115,41 +115,75 @@ public class SongSyntheziser {
             Node syllable = syllables.item(i);
             NodeList phonemes = syllable.getChildNodes();
 
-            int duration = songUnits.get(i).getDuration();
-            for (int j = 0; j < phonemes.getLength(); j++) {
-                Node phoneme = phonemes.item(j);
-                boolean isVowel = false;
-                for (char ch : phoneme.getAttributes().getNamedItem("p").getNodeValue().toCharArray()) {
-                    System.out.println("Phoneme: " + ch);
-                    if (VOWELS.toLowerCase().contains(String.valueOf(ch).toLowerCase())) {
-                        isVowel = true;
-                        break;
-                    }
-                }
-                if (!isVowel) {
-                    System.out.println("consonant: " + phoneme.getAttributes().getNamedItem("d").getNodeValue());
-                    duration -= Integer.parseInt(phoneme.getAttributes().getNamedItem("d").getNodeValue());
-                }
-            }
-
+            System.out.println("Syllable: " + syllable.getAttributes().getNamedItem("ph").getTextContent());
             // Loop all phonemes in syllable
-            for (int j = 0; j < phonemes.getLength(); j++) {
-                Node phoneme = phonemes.item(j);
-                for (char foo : phoneme.getAttributes().getNamedItem("p").getNodeValue().toCharArray()) {
-                    if (VOWELS.toLowerCase().contains(String.valueOf(foo).toLowerCase())) {
-                        Node d = phoneme.getOwnerDocument().createAttribute("d");
-                        d.setNodeValue(String.valueOf(songUnits.get(i).getDuration()));
-                        System.out.println("vowel: " + duration);
-                        phoneme.getAttributes().setNamedItem(d);
-                        break;
-                    }
-                }
-                Node f0 = phoneme.getOwnerDocument().createAttribute("f0");
-                f0.setNodeValue(String.format("(1,%s)(100,%s)", songUnits.get(i).getPitch(),
-                        songUnits.get(i).getPitch()));
-                phoneme.getAttributes().setNamedItem(f0);
+            if (USE_TEMPO) {
+                setNodesWithTempo(songUnits, i, phonemes);
+            }else {
+                setNodes(songUnits, i, phonemes);
             }
             System.out.println();
         }
+    }
+
+    private static void setNodes(List<SongUnit> songUnits, int i, NodeList phonemes) {
+        for (int j = 0; j < phonemes.getLength(); j++) {
+            Node phoneme = phonemes.item(j);
+            for (char foo : phoneme.getAttributes().getNamedItem("p").getNodeValue().toCharArray()) {
+                if (VOWELS.toLowerCase().contains(String.valueOf(foo).toLowerCase())) {
+                    Node d = phoneme.getOwnerDocument().createAttribute("d");
+                    d.setNodeValue(String.valueOf(songUnits.get(i).getDuration()));
+                    phoneme.getAttributes().setNamedItem(d);
+                    break;
+                }
+            }
+
+            Node f0 = phoneme.getOwnerDocument().createAttribute("f0");
+            f0.setNodeValue(String.format("(1,%s)(100,%s)", songUnits.get(i).getPitch(),
+                    songUnits.get(i).getPitch()));
+            phoneme.getAttributes().setNamedItem(f0);
+
+            System.out.println("Phoneme: " + phoneme.getAttributes().getNamedItem("p").getTextContent()
+                    + "     Duration: " + phoneme.getAttributes().getNamedItem("d").getTextContent());
+        }
+    }
+
+    private static void setNodesWithTempo(List<SongUnit> songUnits, int i, NodeList phonemes) {
+        List<Integer> durations = new ArrayList<Integer>();
+        int totalDuration = 0;
+        for (int j = 0; j < phonemes.getLength(); j++) {
+            Node phoneme = phonemes.item(j);
+            int phonemeDuration = Integer.valueOf(phoneme.getAttributes().getNamedItem("d").getTextContent());
+            for (char ch : phoneme.getAttributes().getNamedItem("p").getNodeValue().toCharArray()) {
+                if (VOWELS.toLowerCase().contains(String.valueOf(ch).toLowerCase())) {
+                    phonemeDuration = phonemeDuration * 2;
+                    break;
+                }
+            }
+            durations.add(phonemeDuration);
+            totalDuration += phonemeDuration;
+        }
+
+        for (int j = 0; j < durations.size(); j++) {
+            float percentage = ((float) durations.get(j)) / totalDuration;
+            int duration = Math.round(percentage * songUnits.get(i).getDuration());
+            durations.set(j, duration);
+        }
+
+        for (int j = 0; j < phonemes.getLength(); j++) {
+            Node phoneme = phonemes.item(j);
+            Node d = phoneme.getOwnerDocument().createAttribute("d");
+            d.setNodeValue(String.valueOf(durations.get(j)));
+            phoneme.getAttributes().setNamedItem(d);
+
+            Node f0 = phoneme.getOwnerDocument().createAttribute("f0");
+            f0.setNodeValue(String.format("(1,%s)(100,%s)", songUnits.get(i).getPitch(),
+                    songUnits.get(i).getPitch()));
+            phoneme.getAttributes().setNamedItem(f0);
+
+            System.out.println("Phoneme: " + phoneme.getAttributes().getNamedItem("p").getTextContent()
+                    + "     Duration: " + phoneme.getAttributes().getNamedItem("d").getTextContent());
+        }
+        System.out.println("Songunit duration: " + songUnits.get(i).getDuration());
     }
 }
